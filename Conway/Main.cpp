@@ -30,7 +30,7 @@ desired future features:
 
 const int XSIZE = 48;
 const int YSIZE = 32;
-const int STEPS = 200;
+const int STEPS = 1000;
 const int FRAMEDELAY = 150; //time between frames in ms
 const char LIVE = 'O';
 const char DEAD = ' ';
@@ -87,7 +87,7 @@ void fillGrid(std::ifstream& in_s, int grid[][XSIZE], int y, int x)
 	{
 		for(int j = 0 ; j < x; j++)
 		{
-			if( in_s.get(next) ) 
+			if( (in_s >> next) ) 
 			{
 				
 				nextInt = next - '0'; //convert from char to int
