@@ -24,10 +24,10 @@ desired future features:
 
 //comment to test git
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-#include <ctype.h>
+#include <fstream>  //to read files
+#include <string>   //used for filenames
+#include <cstdlib>  
+#include <ctype.h>  //for char checking
 #include <Windows.h> //for Sleep()
 
 const int XSIZE = 48;
