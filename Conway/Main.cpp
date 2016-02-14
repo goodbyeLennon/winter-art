@@ -48,6 +48,8 @@ public:
 	void	updateGrid( int currentGrid[][XSIZE], int nextGrid[][XSIZE], const int y, const int x ); //calculate the next grid iteration
 	void	drawGrid( const int grid[][XSIZE], const int y, const int x ); //draw the grid on screen.
 
+	int		stepNumber;
+
 private:
 	bool	cellChecker(const int grid[][XSIZE], const int ysize, const int xsize, int yLoc, int xLoc); //determines whether an individual cell is alive or dead.
 
@@ -58,15 +60,14 @@ int main() {
 	std::ifstream startGrid; //the stream to open the starting grid file
 	int currentGrid[YSIZE][XSIZE] = {}; //the current grid, which is displayed and used to calculate the next iteration
 	int nextGrid[YSIZE][XSIZE] = {}; //the grid that is filled with the next iteration of the game
-	int stepNumber = 0; // the current iteration of the game
 
 	Game gol( startGrid, currentGrid, YSIZE, XSIZE ); //main game object
 
-	while( stepNumber < STEPS ) {
+	while( gol.stepNumber < STEPS ) {
 		gol.drawGrid(currentGrid, YSIZE, XSIZE);
 		gol.updateGrid(currentGrid, nextGrid, YSIZE, XSIZE);
-		stepNumber++;
-		std::cout << "\n\n" << stepNumber;
+		gol.stepNumber++;
+
 	}
 
 	return 0;
@@ -75,6 +76,8 @@ int main() {
 
 Game::Game( std::ifstream& startGrid, int currentGrid[][XSIZE], const int YSIZE, const int XSIZE ) {
 	
+	stepNumber = 0;
+
 	std::cout << "\t\t===Conway's Game of Life::";
 	std::cout << XSIZE << " x " << YSIZE << " edition===\n\n";
 
@@ -155,6 +158,8 @@ void Game::drawGrid(const int grid[][XSIZE], const int y, const int x) {
 			}
 		}
 	}
+
+	std::cout << "\n\n" << stepNumber;
 
 }
 
