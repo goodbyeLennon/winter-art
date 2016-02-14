@@ -21,6 +21,8 @@ desired future features:
 3. Any live cell with more than three live neighbours dies, as if by over-population.
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 */
+
+//comment to test git
 #include <iostream>
 #include <fstream>
 #include <string>
