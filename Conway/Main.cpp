@@ -21,6 +21,8 @@ desired future features:
 3. Any live cell with more than three live neighbours dies, as if by over-population.
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 */
+
+//comment to test git
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -30,7 +32,7 @@ desired future features:
 
 const int XSIZE = 48;
 const int YSIZE = 32;
-const int STEPS = 200;
+const int STEPS = 1000;
 const int FRAMEDELAY = 150; //time between frames in ms
 const char LIVE = 'O';
 const char DEAD = ' ';
@@ -87,7 +89,7 @@ void fillGrid(std::ifstream& in_s, int grid[][XSIZE], int y, int x)
 	{
 		for(int j = 0 ; j < x; j++)
 		{
-			if( in_s.get(next) ) 
+			if( (in_s >> next) ) 
 			{
 				
 				nextInt = next - '0'; //convert from char to int
